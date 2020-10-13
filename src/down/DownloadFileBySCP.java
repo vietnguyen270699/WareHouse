@@ -116,7 +116,7 @@ public class DownloadFileBySCP {
 				System.out.println("Files were deleted : " + childDir.getAbsolutePath());
 
 			}
-			// Check lai va xoa thu muc cha
+			// kiem tra lai va xoa thu muc cha
 			if (file.list().length == 0) {
 				file.delete();
 				System.out.println(" Folder was deleted : " + file.getAbsolutePath());
@@ -222,7 +222,7 @@ public class DownloadFileBySCP {
 			Connection connectControlDB = ConnectMysql.getConnection();
 			String sql = "INSERT INTO data_file_logs ( your_filename, status_file,encode,delimiter,number_column,download_to_dir_local,time_staging,staging_load_count,table_staging_load) VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connectControlDB.prepareStatement(sql);
-
+// ghi lại các thông tin vào database
 			statement.setString(1, file.getName());
 			statement.setString(2, "OK download");
 			statement.setString(3, "UTF-8");
